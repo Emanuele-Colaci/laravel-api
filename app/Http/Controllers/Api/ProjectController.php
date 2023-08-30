@@ -17,5 +17,6 @@ class ProjectController extends Controller
             'success' => true,
             'results' => $projects
         ]);
+        
     }
 }
