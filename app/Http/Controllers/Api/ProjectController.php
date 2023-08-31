@@ -19,4 +19,20 @@ class ProjectController extends Controller
         ]);
         
     }
+
+    public function show($title){
+        $projects = Project::with('type','technologies')->where('titolo', $title)->first();
+    
+        if($projects){
+            return response()->json([
+                'status' => true,
+                'project' => $projects,
+            ]);
+        }
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Nessun progetto trovato',
+        ]);
+    }
 }
